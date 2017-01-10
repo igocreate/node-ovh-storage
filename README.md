@@ -24,13 +24,14 @@ var config = {
 var storage = new OVHStorage(config);
 // init token
 storage.getToken(function(err) {
-
-  // put file
-  storage.putFile('./tmp/doc.pdf', '/Storage-1/doc.pdf', function(err, res) {
-
-    storage.getFiles('/Storage-1', function(err, files) {
-
-      done();
+  // create new container
+  storage.createContainer('Storage-1', function() {
+    // put file
+    storage.putFile('./tmp/doc.pdf', '/Storage-1/doc.pdf', function(err, res) {
+      // list files in container
+      storage.getFiles('/Storage-1', function(err, files) {
+        // done
+      });
     });
   });
 });
