@@ -1,0 +1,23 @@
+{
+  "name": "node-ovh-storage",
+  "version": "0.1.0",
+  "description": "A simple Node.js library to connect to the Object Storage OVH service",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igocreate/node-ovh-storage.git"
+  },
+  "keywords": [
+    "ovh",
+    "object-storage"
+  ],
+  "author": "igocreate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igocreate/node-ovh-storage/issues"
+  },
+  "homepage": "https://github.com/igocreate/node-ovh-storage#readme"
+}
