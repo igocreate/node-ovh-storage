@@ -1,6 +1,6 @@
 {
   "name": "node-ovh-storage",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A simple Node.js library to connect to the Object Storage OVH service",
   "main": "index.js",
   "scripts": {
