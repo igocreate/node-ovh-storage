@@ -63,19 +63,19 @@ describe('OVHStorage', function() {
       // create container
       ovhstorage.createContainer(TEST_CONTAINER, (err, data) => {
         // console.log(err, data);
-        assert.strictEqual(err, null);
+        assert.strictEqual(err, undefined);
 
         // get files in container
         ovhstorage.getFileList('/' + TEST_CONTAINER, (err, files) => {
           // console.log(err, files);
-          assert.strictEqual(err, null);
+          assert.strictEqual(err, undefined);
           assert.strictEqual(_.isArray(files), true);
           assert.strictEqual(files.length, 0);
 
           // delete container
           ovhstorage.deleteFile('/' + TEST_CONTAINER, (err, data) => {
             // console.log(err, data);
-            assert.strictEqual(err, null);            
+            assert.strictEqual(err, undefined);            
             done();
           });
         });
@@ -92,34 +92,34 @@ describe('OVHStorage', function() {
       // create container
       ovhstorage.createContainer(TEST_CONTAINER, (err, data) => {
         // console.log(err, data);
-        assert.strictEqual(err, null);
+        assert.strictEqual(err, undefined);
 
         // put file
         ovhstorage.putFile('./README.md', '/' + TEST_CONTAINER + '/README.md', (err, data) => {
 
-          assert.strictEqual(err, null);
+          assert.strictEqual(err, undefined);
         
           // get files in container
           ovhstorage.getFileList('/' + TEST_CONTAINER, (err, files) => {
             // console.log(err, files);
-            assert.strictEqual(err, null);
+            assert.strictEqual(err, undefined);
             assert.strictEqual(_.isArray(files), true);
             assert.strictEqual(files.length, 1);
 
             // get file in container
             ovhstorage.getFile('/' + TEST_CONTAINER + '/README.md', (err, data) => {
-              assert.strictEqual(err, null);
+              assert.strictEqual(err, undefined);
               assert.strictEqual(data.toString('utf8'), fs.readFileSync('./README.md', { encoding: 'utf8' }));
 
               // delete file
               ovhstorage.deleteFile('/' + TEST_CONTAINER + '/README.md', (err, data) => {
                 // console.log(err, data);
-                assert.strictEqual(err, null);
+                assert.strictEqual(err, undefined);
                 
                 // delete container
                 ovhstorage.deleteFile('/' + TEST_CONTAINER, (err, data) => {
                   // console.log(err, data);
-                  assert.strictEqual(err, null);            
+                  assert.strictEqual(err, undefined);            
                   done();
                 });
               });
