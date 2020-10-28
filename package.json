@@ -1,6 +1,6 @@
 {
   "name": "node-ovh-storage",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A simple Node.js library to connect to the Object Storage OVH service",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/igocreate/node-ovh-storage#readme",
   "dependencies": {
-    "lodash": "^4.17.15",
-    "request": "^2.88.0"
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.20"
   }
 }
