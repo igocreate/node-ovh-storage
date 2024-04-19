@@ -13,36 +13,41 @@ npm install node-ovh-storage
 
 ```js
 
-var OVHStorage = require('node-ovh-storage');
+const OVHStorage  = require('node-ovh-storage');
 
-var config = {
-  authURL:  'https://auth.cloud.ovh.net/v3',
-  username: 'username',
-  password: 'password',
-  tenantId: 'tenantId',
-  region:   'GRA'
+const config      = {
+  authURL:    'https://auth.cloud.ovh.net/v3',
+  username:   'username',
+  password:   'password',
+  tenantId:   'tenantId',
+  region:     'GRA'
 };
 
-const storage = new OVHStorage(config);
+// test function
+const test = async () => {
 
-// init token
-storage.getToken((err) => {
+  const storage = new OVHStorage(config);
+
+  // init token (optional)
+  await storage.getToken();
 
   // create new container
-  storage.createContainer('Container-1', () => {
+  await storage.createContainer('Container-1');
 
-    // put file
-    storage.putFile('./tmp/doc.pdf', '/Container-1/doc.pdf', (err, res) => {
+  // put file
+  await storage.putFile('./tmp/doc.pdf', '/Container-1/doc.pdf');
 
-      // list files in container
-      storage.getFileList('/Container-1', (err, files) => {
+  // list files in container
+  await storage.getFileList('/Container-1');
 
-        // read file
-        storage.getFile('/Container-1/doc.pdf', (err, file) => {
-          
-        });
-      });
-    });
-  });
-});
+  // get file
+  await storage.getFile('/Container-1/doc.pdf');
+
+  // delete file
+  await storage.deleteFile('/Container-1/doc.pdf');
+
+};
+
+test();
+
 ```
